@@ -1,0 +1,16 @@
+{
+  "name": "sjtug-twitter-bot",
+  "version": "0.0.0",
+  "private": true,
+  "author": "SJTUG <sjtug@googlegroups.com>",
+  "description": "Twibot for SJTUG",
+  "dependencies": {
+    "hubot": "^2.18.0",
+    "hubot-help": "^0.1.3",
+    "hubot-heroku-keepalive": "^1.0.2",
+    "twitter": "^1.2.5"
+  },
+  "engines": {
+    "node": "0.10.x"
+  }
+}
