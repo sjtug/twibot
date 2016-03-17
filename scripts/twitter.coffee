@@ -43,14 +43,14 @@ module.exports = (robot) ->
         msg.send ":beer: Great! I have put your message on Twitter!"
 
   # hubot DM
-  robot.respond /dm\s+(\S+)\s+(.*)/, (msg) ->
+  robot.respond /dm\s+(\S+)\s+(.*)$/, (msg) ->
     user = msg.match[1].replace '@', ''
-    text = mes.match[2].trim()
+    text = msg.match[2].trim()
     if text.length <= 0
       msg.send "Sorry, you can not send an empty message to #{user} on Twitter."
       return
     twitter.post 'direct_messages/new', {text:text, screen_name:user}, (error, tweet, response) ->
         if error
-          msg.send "Sorry, I failed to send your message. Detail: #{error.message}"
+          msg.send "Sorry, I was unable to send your message. Detail: #{error.message}"
         else
           msg.send ":beer: Great! I have sent your message to @#{user} on Twitter."
