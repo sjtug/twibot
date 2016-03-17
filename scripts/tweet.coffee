@@ -43,7 +43,7 @@ module.exports = (robot) ->
         msg.send ":beer: Great! I have put your message on Twitter!"
 
   # hubot DM
-  robot respond /dm\s+(\S+)\s+(.*)/, (msg) ->
+  robot.respond /dm\s+(\S+)\s+(.*)/, (msg) ->
     user = msg.match[1].replace '@', ''
     text = mes.match[2].trim()
     if text.length <= 0
