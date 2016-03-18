@@ -44,7 +44,7 @@ module.exports = (robot) ->
       if error
         msg.send "Sorry, I failed to post your message. Detail: #{error.message}"
       else
-        msg.send ":beer: Great! I have put your message on Twitter!"
+        msg.send ":beer: Great! I have put your message on Twitter! https://twitter.com/statuses/#{tweet.id_str}"
 
   # hubot DM
   robot.respond /dm\s+(\S+)\s+(.*)$/, (msg) ->
