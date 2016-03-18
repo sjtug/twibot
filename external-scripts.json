@@ -1,4 +1,5 @@
 [
   "hubot-help",
-  "hubot-auth"
+  "hubot-auth",
+  "hubot-heroku-keepalive"
 ]
