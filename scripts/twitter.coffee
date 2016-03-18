@@ -28,6 +28,8 @@ twitter = new require('twitter')(auth)
 module.exports = (robot) ->
   # hubot tweet
   robot.respond /tweet\s+(.*)$/, (msg) ->
+    if not robot.auth.hasRole(msg.envelope.user,'manager')
+      msg.send "Sorry, @#{msg.envelope.user} do not have permission of managing the Twitter account."
     text = msg.match[1].trim()
     if text.length <= 0
       msg.send 'Sorry, you can not post an empty message on Twitter.'
@@ -44,6 +46,8 @@ module.exports = (robot) ->
 
   # hubot DM
   robot.respond /dm\s+(\S+)\s+(.*)$/, (msg) ->
+    if not robot.auth.hasRole(msg.envelope.user,'manager')
+      msg.send "Sorry, @#{msg.envelope.user} do not have permission of managing the Twitter account."
     user = msg.match[1].replace '@', ''
     text = msg.match[2].trim()
     if text.length <= 0
